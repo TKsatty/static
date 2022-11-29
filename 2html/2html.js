@@ -54,6 +54,7 @@
 
     var vH1Index = 0;
     var vH2Index = 0;
+	var idNum = 0;
     $("body").find("h1,h2,h3,h4,h5,h6").each(function(i,item){
         var id = '';
         var name = '';
@@ -61,12 +62,12 @@
         var className = '';
 		//仅支持三级目录
         if(tag == vH1Tag){
-            id = name = ++vH1Index;
+            //id = name = ++vH1Index;
             name = id;
             vH2Index = 0;
             className = 'item_h1';
         }else if(tag == vH2Tag){
-            id = vH1Index + '_' + ++vH2Index;
+            //id = vH1Index + '_' + ++vH2Index;
             name = vH1Index + '.' + vH2Index;
             className = 'item_h2';
         }else if(tag == vH3Tag){
@@ -74,6 +75,7 @@
             //name = vH1Index + '.' + vH2Index;
             className = 'item_h3';
         }
+		id = idNum++;
         $(item).attr("id","wow"+id);
         $(item).addClass("wow_head");
         $("#AnchorContent").css('max-height', ($(window).height() - 80) + 'px');
